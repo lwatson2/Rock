@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>page title</title>
+</head>
+<body>
+	<script>
+		//function game(){
+
+			let pScore = 0
+			let cScore = 0
+			let round = 0
+			
+			
+				function computerPlay(){
+			let items = ['rock', 'paper', 'scissors']
+			
+			let computerSelection = items[Math.floor(Math.random()* items.length)]
+			
+			return computerSelection
+		} 
+				
+			
+
+
+			function playerChoice(){
+			
+				let playerSelection = prompt('Rock, paper, or scissors?')
+					
+					
+						
+					let compSelect = computerPlay();
+					console.log(compSelect)
+					result(playerSelection,compSelect)
+				
+			}
+			
+		
+		
+		
+		function result(playerSelection, computerSelection){
+			
+			round++
+			
+
+			 if (playerSelection === computerSelection){
+				alert("Its a draw");
+				}
+
+			else if (computerSelection === 'paper' &&
+				playerSelection=== 'rock' ||
+				computerSelection === 'rock' &&
+				playerSelection === 'scissors' ||
+				computerSelection === 'scissors' && playerSelection === 'paper'){
+				cScore++
+
+				alert("You lose! Computer chose " +computerSelection  +"   You have"+ pScore + " and computer has " + cScore)
+			
+		}
+
+			 if (playerSelection === 'rock'&& computerSelection === "scissors" || playerSelection === 'paper' && computerSelection === 'rock' || playerSelection === 'scissors' && computerSelection === 'paper') {
+			  	pScore++
+			  	alert("You won! The computer chose " + computerSelection + " You have " + pScore + " and the computer has " + cScore);
+			  	
+			  }
+			
+			
+			}
+ 		
+ 		function game(){
+ 			
+ 			
+ 			while(round < 5){
+ 				result(computerPlay(),playerChoice())
+ 			}
+
+ 			if (cScore > pScore){
+ 				alert("Computer wins!")
+ 			}
+ 			else if (cScore < pScore){
+ 				alert ("You win!")
+ 			}
+ 			
+ 			else {
+ 				alert("Its a draw!")
+ 			 
+ 			computerPlay()
+ 			playerChoice()
+ 			result()
+ 			}
+ 			
+ 		}
+
+ 		game()
+		//function score(){
+			//cScore++
+			//pScore++
+			
+				
+
+		//}
+		//console.log(score())
+
+		
+			
+		
+	
+		</script>
+
+</body>
+</html>
