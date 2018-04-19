@@ -2,43 +2,44 @@
 			let score = ""
 			let pScore = 0
 			let cScore = 0
-			let round = 0
+			let choice = ""
+			let final = ""
 			const rock = document.getElementById('rock')
 			const paper = document.getElementById('paper')
 			const scissors = document.getElementById('scissors')
-			
+			const newGame = document.getElementById('newGame')
 
-			rock.addEventListener('click', playerChoice)
-			paper.addEventListener('click', playerChoice)
-			scissors.addEventListener('click', playerChoice)
-
-				function computerPlay(){
-			let items = ['rock', 'paper', 'scissors']
 			
-			let computerSelection = items[Math.floor(Math.random()* items.length)]
-			
-			return computerSelection
-		} 
+			rock.addEventListener('click', result)
+			paper.addEventListener('click', result)
+			scissors.addEventListener('click',result)
+			newGame.addEventListener('click', () => resetGame())
 
-			function playerChoice(){
-			
-			playerSelection = this.id
-
-			let compSelect = computerPlay();
-					console.log(compSelect)
-					result(playerSelection,compSelect)
+				function getRandomInt(min, max) {
+				  return Math.floor(Math.random() * (max - min + 1)) + min;
 				}
 
+				function computerPlay(){
+				const arr = ["Rock", "Paper", "Scissors"];
 
-			function result(playerSelection, computerSelection){
-				round++
+				return arr[getRandomInt(0,2)]
+		} 
+			
+			
+			
+
+			function result(){
+				
+				const playerSelection = this.id
+				const computerSelection = computerPlay().toLowerCase()
+
 				if(playerSelection === "rock" && computerSelection === "paper" ||
 					playerSelection === "paper" && computerSelection ==="scissors" ||
 					playerSelection === "scissors" && computerSelection === "rock"){
 					 results = "You lose! Computer chose " + computerSelection
-					+ " while you chose " + playerSelection
+					+ " while you chose " + playerSelection 
 					document.getElementById('results').innerHTML = results
-					cScore++
+					cScore = +cScore + 1
 				}
 				else if(playerSelection === "rock" && computerSelection === "scissors"
 					|| playerSelection === "paper" && computerSelection === "rock" ||
@@ -46,7 +47,8 @@
 					results = "You win! You chose " + playerSelection + " while the computer chose " +
 					computerSelection 
 					document.getElementById('results').innerHTML = results
-					pScore++
+					pScore = +pScore + 1
+					
 				}
 				else {
 					results = "Its a draw! You both chose " + playerSelection
@@ -54,34 +56,26 @@
 				}
 					score = "Player has " + pScore + "Computer has " + cScore
 					document.getElementById('score').innerHTML=score
+			
+				let final = document.getElementById("final")
+				if(pScore === 5){
+					final.innerHTML = "You won" 
+					document.getElementById('newGame').style.visibility = 'visible';
+				}
+
+				if(cScore === 5){
+					final.innerHTML = "You lost"
+					document.getElementById('newGame').style.visibility = 'visible';
+				}
+				
 			}
 
-			function game(){
-
-			while(round < 5){}
-
-				if(cScore > pScore){
-					score = "You lost! The computer had " +cScore + " while you had"
-					+ pScore 
-				document.getElementById('score').innerHTML= score
-				}
-				else if (pScore > cScore){
-					score = "You win! You had " + pScore + " while the computer had" 
-					+ cScore
-					document.getElementById("score").innerHTML = score
-				}
-				else {
-					score = "It's a draw!"
-					document.getElementById("score").innerHTML = score
+				function resetGame(){
+					pScore = 0
+					cScore = 0 
+					document.getElementById('newGame').style.visibility = 'hidden';
 				}
 			
-		}
-		game()
-conso
-
-			
-
-
 			
 
 			
