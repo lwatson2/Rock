@@ -14,8 +14,12 @@
 			paper.addEventListener('click', result)
 			scissors.addEventListener('click',result)
 			newGame.addEventListener('click', () => resetGame())
+			pscore1 =   pScore
+					document.getElementById('playerNum').innerHTML= pscore1
+			cscore1 =   cScore
+					document.getElementById('compNum').innerHTML= cscore1
 
-				function getRandomInt(min, max) {
+								function getRandomInt(min, max) {
 				  return Math.floor(Math.random() * (max - min + 1)) + min;
 				}
 
@@ -54,17 +58,19 @@
 					results = "Its a draw! You both chose " + playerSelection
 					document.getElementById('results').innerHTML = results
 				}
-					score = "Player has " + pScore + "Computer has " + cScore
-					document.getElementById('score').innerHTML=score
-			
+					pscore1 =   pScore
+					document.getElementById('playerNum').innerHTML= pscore1
+					cscore1 =   cScore
+					document.getElementById('compNum').innerHTML= cscore1
+
 				let final = document.getElementById("final")
 				if(pScore === 5){
-					final.innerHTML = "You won" 
+					final.innerHTML = "Congratulations! You defeated the computer!" 
 					document.getElementById('newGame').style.visibility = 'visible';
 				}
 
 				if(cScore === 5){
-					final.innerHTML = "You lost"
+					final.innerHTML = "Oh no! The computer defeated you! Better luck next time"
 					document.getElementById('newGame').style.visibility = 'visible';
 				}
 				
@@ -73,7 +79,7 @@
 				function resetGame(){
 					pScore = 0
 					cScore = 0 
-					document.getElementById('newGame').style.visibility = 'hidden';
+					
 				}
 			
 			

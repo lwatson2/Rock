@@ -5,6 +5,63 @@
 }
 #p-text{
 	position: absolute;
-	top: 30%;
-	left: 45%;
+	padding-left: 100px;
+	left: 23%;
+	top: 5%;
+	
 }
+#score1{
+	position: absolute;
+	display: block;
+	top: 20%;
+	left: 23%;
+	border: 4px solid black;
+	overflow: hidden;
+	width: 500px;
+}
+#playerScore{
+	float: left;
+}
+
+#compScore{
+	float: right;
+}
+#numScore{
+	position: absolute;
+	display: block;
+	top: 35%;
+	left: 23%;
+	overflow: hidden;
+	width: 500px;
+}
+#playerNum{
+	float: left;
+	padding-left: 75px;
+}
+#computerNum{
+	float: right;
+	padding-right: 75px;
+}
+.newGame{
+	background: white;
+	border-radius: 4px;
+	width: 100px;
+
+	}
+body{
+	background: linear-gradient(white, black)
+}
+html{
+	height: 100%;
+}
+#newGamebtn{
+	position: absolute;
+	top: 85%;
+	left: 50%
+}
+#final1{
+	position: absolute;
+	top: 65%;
+	left: 35%;
+	width: 450px;
+
